@@ -106,6 +106,7 @@ NAN_METHOD(SetDebugLevel) {
 NAN_METHOD(GetDeviceList) {
 	Nan::HandleScope scope;
 	libusb_device **devs;
+	libusb_init(&usb_context);
 	int cnt = libusb_get_device_list(usb_context, &devs);
 	CHECK_USB(cnt);
 
