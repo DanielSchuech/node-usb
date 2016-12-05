@@ -165,6 +165,9 @@ Interface.prototype.__refresh = function(){
 }
 
 Interface.prototype.claim = function(){
+	if (this.device.__isKernelDriverActive(this.id)) {
+		this.device.__detachKernelDriver(this.id);
+	}
 	this.device.__claimInterface(this.id)
 }
 
